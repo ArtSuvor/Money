@@ -524,10 +524,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Money" id="5Ka-wW-peX"/>
                     <connections>
+                        <outlet property="allSpending" destination="Omx-Sb-axf" id="g4J-Dy-mCv"/>
                         <outlet property="displayLabel" destination="clY-oe-Uox" id="wAH-TT-bKq"/>
                         <outlet property="howManyCanSpend" destination="EA1-Od-KHT" id="oE4-ho-3va"/>
                         <outlet property="limitLabel" destination="3Vd-hq-GaB" id="bqs-n5-xj7"/>
-                        <outlet property="spendByCheck" destination="lnp-yE-LfQ" id="IYb-DT-MpB"/>
+                        <outlet property="spendByCheck" destination="lnp-yE-LfQ" id="eB1-yj-Qw6"/>
                         <outlet property="tableView" destination="7V9-YC-u6w" id="fxg-qF-Klc"/>
                         <outletCollection property="numberFromKeyboard" destination="GRq-qE-DR6" collectionClass="NSMutableArray" id="1kh-Zm-bqK"/>
                         <outletCollection property="numberFromKeyboard" destination="ZPa-K1-Tix" collectionClass="NSMutableArray" id="8VO-Hd-ewB"/>
