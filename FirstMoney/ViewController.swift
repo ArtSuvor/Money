@@ -12,6 +12,10 @@ class ViewController: UIViewController {
 
 //MARK: - Outlets
     
+    @IBOutlet var limitLabel: UILabel!
+    @IBOutlet var howManyCanSpend: UILabel!
+    @IBOutlet var spendByCheck: UILabel!
+    
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var displayLabel: UILabel!
     @IBOutlet private var numberFromKeyboard: [UIButton]! {
@@ -79,6 +83,52 @@ class ViewController: UIViewController {
         }
         tableView.reloadData()
     }
+    
+    //установка лимита и запись в бд
+    @IBAction func limitPressed(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Установить лимит", message: "Введите сумму и количество дней", preferredStyle: .alert)
+        let alertInstall = UIAlertAction(title: "Установить", style: .default) { action in
+            
+            guard let textFieldSum = alertController.textFields?[0].text,
+            let textFieldDay = alertController.textFields?[1].text else { return }
+            
+            self.limitLabel.text = textFieldSum
+            let day = textFieldDay
+            let dateNow = Date()
+            let lastDay = dateNow.addingTimeInterval(60*60*24*(Double(day) ?? 0))
+            
+            let limit = self.realm.objects(LimitModel.self)
+            if limit.isEmpty {
+                let value = LimitModel(value: [textFieldSum, dateNow, lastDay])
+                try! self.realm.write {
+                    self.realm.add(value)
+                }
+            } else {
+                try! self.realm.write {
+                    limit[0].limitSum = textFieldSum
+                    limit[0].limitDate = dateNow as NSDate
+                    limit[0].limitLastDay = lastDay as NSDate
+                }
+            }
+        }
+        let alertCancel = UIAlertAction(title: "Отмена", style: .cancel)
+
+        
+        alertController.addTextField { money in
+            money.placeholder = "Сумма"
+            money.keyboardType = .asciiCapableNumberPad
+        }
+        
+        alertController.addTextField { day in
+            day.placeholder = "Количество дней"
+            day.keyboardType = .asciiCapableNumberPad
+        }
+        
+        alertController.addAction(alertInstall)
+        alertController.addAction(alertCancel)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: - Extension tableView

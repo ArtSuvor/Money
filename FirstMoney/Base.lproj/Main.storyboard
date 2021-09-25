@@ -155,13 +155,13 @@
                                     <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bEw-mv-Vfj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лимит в месяц:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgB-Np-BRo">
-                                <rect key="frame" x="10" y="158" width="98" height="17.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Лимит:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgB-Np-BRo">
+                                <rect key="frame" x="10" y="158" width="45" height="17.5"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vd-hq-GaB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vd-hq-GaB">
                                 <rect key="frame" x="10" y="180.5" width="10" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -173,7 +173,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA1-Od-KHT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA1-Od-KHT">
                                 <rect key="frame" x="10" y="231" width="10" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -213,6 +213,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Установить лимит">
                                     <fontDescription key="titleFontDescription" name="HoeflerText-Italic" family="Hoefler Text" pointSize="13"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="limitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YKo-wu-kXW"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleAspectFill" restorationIdentifier="StackViewCategory" distribution="fillProportionally" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Nwz-Ff-Q4S" userLabel="Stack View Category">
                                 <rect key="frame" x="10" y="385.5" width="394" height="85"/>
@@ -522,6 +525,9 @@
                     <navigationItem key="navigationItem" title="Money" id="5Ka-wW-peX"/>
                     <connections>
                         <outlet property="displayLabel" destination="clY-oe-Uox" id="wAH-TT-bKq"/>
+                        <outlet property="howManyCanSpend" destination="EA1-Od-KHT" id="oE4-ho-3va"/>
+                        <outlet property="limitLabel" destination="3Vd-hq-GaB" id="bqs-n5-xj7"/>
+                        <outlet property="spendByCheck" destination="lnp-yE-LfQ" id="IYb-DT-MpB"/>
                         <outlet property="tableView" destination="7V9-YC-u6w" id="fxg-qF-Klc"/>
                         <outletCollection property="numberFromKeyboard" destination="GRq-qE-DR6" collectionClass="NSMutableArray" id="1kh-Zm-bqK"/>
                         <outletCollection property="numberFromKeyboard" destination="ZPa-K1-Tix" collectionClass="NSMutableArray" id="8VO-Hd-ewB"/>
